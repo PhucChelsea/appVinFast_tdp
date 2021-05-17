@@ -35,9 +35,11 @@ const HeaderVinFast = () => {
   return (
     <Header style={{ position: "fixed", zIndex: 100, width: "100%" }}>
       <StyleHeader>
-        <DivLogoHeader>
-          <img src={logo} alt="logo" />
-        </DivLogoHeader>
+        <Link to="/">
+          <DivLogoHeader>
+            <img src={logo} alt="logo" />
+          </DivLogoHeader>
+        </Link>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={pathname}>
           <Menu.Item key="/car-home">
             <Link to="/car-home">Home</Link>

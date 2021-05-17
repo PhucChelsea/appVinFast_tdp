@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 
 const DivSiteConTent = styled.div`
   min-height: 680px;
-  padding: 10px;
   background: #fff;
 `;
 const { Content } = Layout;
@@ -15,10 +14,7 @@ const MasterLayoutVinFast = (props) => {
   return (
     <Layout>
       <HeaderVinFast />
-      <Content
-        className="site-layout"
-        style={{ padding: "0 50px", marginTop: 64 }}
-      >
+      <Content style={{ marginTop: "10px" }}>
         <DivSiteConTent>{props.children}</DivSiteConTent>
       </Content>
       <FooterVinFast />

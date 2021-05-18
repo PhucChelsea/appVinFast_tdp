@@ -25,15 +25,15 @@ const DivLogoHeader = styled.div`
 const HeaderVinFast = () => {
   const history = useHistory();
   const { pathname } = useLocation();
-  const info = helpers.decodeTokennLocalStorage();
+  const info = helpers.decodeTokenLocalStorage();
   const username = info !== null ? info.phone : null;
   const LogoutUser = () => {
-    helpers.removeTokenn();
-    history.push("/car-login");
+    helpers.removeToken();
+    history.push("/");
   };
 
   return (
-    <Header style={{ position: "fixed", zIndex: 100, width: "100%" }}>
+    <Header>
       <StyleHeader>
         <Link to="/">
           <DivLogoHeader>
@@ -74,10 +74,11 @@ const HeaderVinFast = () => {
               <ShoppingCartOutlined />
             </Link>
           </Menu.Item>
-
-          <Menu.Item onClick={() => LogoutUser()}>
-            <LogoutOutlined />
-          </Menu.Item>
+          {info !== null && (
+            <Menu.Item onClick={() => LogoutUser()}>
+              <LogoutOutlined />
+            </Menu.Item>
+          )}
         </Menu>
       </StyleHeader>
     </Header>

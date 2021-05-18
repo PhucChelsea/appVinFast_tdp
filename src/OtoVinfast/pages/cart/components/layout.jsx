@@ -5,16 +5,20 @@ import HeaderShopping from "./header";
 import FooterShopping from "./footer";
 import PropTypes from "prop-types";
 import "./css/layout.css";
-const { Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 const LayoutShopping = (props) => {
   return (
     <Layout>
-      <HeaderShopping />
-      <Content style={{ padding: "0 50px" }}>
-        <div className="site-layout-content">{props.children}</div>
-      </Content>
-      <FooterShopping />
+      <Header>
+        <HeaderShopping />
+      </Header>
+      <Layout>
+        <Content>{props.children}</Content>
+      </Layout>
+      <Footer>
+        <FooterShopping />
+      </Footer>
     </Layout>
   );
 };

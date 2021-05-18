@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Input, Button, Row, Col } from "antd";
+import { api_login } from "../../services/api_login";
 
 import { helpers } from "../../helpers/common";
 
@@ -20,40 +21,77 @@ const tailLayout = {
 };
 
 const LoginPage = () => {
-//   const [errorLogin, setErrorLogin] = useState(" ");
-//   const history = useHistory();
-//   const onFinish = (values) => {
-//     let user = values.username;
-//     let pass = values.password;
-//     let tokenn = api.checkUserLogin(user, pass);
-//     if (tokenn !== null) {
-//       // console.log(tokenn);
-//       // luu tokenn
-//       // setErrorLogin("");
-//       helpers.saveTokenn(tokenn);
-//       history.push("/");
-//     } else {
-//       setErrorLogin("account invalid");
-//     }
+  const history = useHistory();
+  const [errorLogin, setErrorLogin] = useState("");
+  const onFinish = (values) => {
+    // console.log("Success:", values);
+    const user = values.username;
+    const pass = values.password;
+    let token = api_login.loginUser(user, pass);
+    if (token !== null) {
+      // luu token
+      helpers.saveToken(token);
+      setErrorLogin("");
+      history.push("/");
+    } else {
+      setErrorLogin(`nhập linh tinh or account invalid`);
+    }
+  };
 
-//     // let token = api.LoginUser(user, pass);
-//     // if (token !== null) {
-//     //   setErrorLogin("");
-//     //   // console.log(token);
-//     //   // luu token
-//     //   helpers.saveToken(token);
-//     //   history.push("/");
-//     // } else {
-//     //   setErrorLogin("account invalid");
-//     // }
-//   };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
 
-  // const onFinishFailed = (errorInfo) => {
-  //   console.log("Failed:", errorInfo);
-  //};
   return (
-    <Row style={{ marginTop: "50px" }}>
-      {/* <Col span={12} offset={6}>
+    <>
+      <Row style={{ margin: "10px 10px" }}>
+        <Col span={10} style={{ float: "left" }}></Col>
+      </Row>
+      <Row style={{ marginTop: "50px" }}>
+        <Col span={10} offset={7}>
+          <Form
+            {...layout}
+            name="basic"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+          >
+            <h3 style={{ textAlign: "center", color: "red" }}>{errorLogin}</h3>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your username!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+        {/* <Col span={12} offset={6}>
         <h4 style={{ textAlign: "center", color: "red" }}>{errorLogin}</h4>
         <Form
           {...layout}
@@ -97,7 +135,8 @@ const LoginPage = () => {
           </Form.Item>
         </Form>
       </Col> */}
-    </Row>
+      </Row>
+    </>
   );
 };
 

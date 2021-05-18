@@ -77,12 +77,12 @@ const RouterVinFast = () => {
             <Route path="/car-fadil">
               <FadilPage />
             </Route>
-            <Route path="/car-login">
+            <IsLoginRouter path="/car-login">
               <LoginPage />
-            </Route>
-            <Route path="/gio-hang">
+            </IsLoginRouter>
+            <PrivateRouter path="/gio-hang">
               <ShopingcartPage />
-            </Route>
+            </PrivateRouter>
           </Switch>
         </Suspense>
       </Router>

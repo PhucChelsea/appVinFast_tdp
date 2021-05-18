@@ -1,15 +1,11 @@
 import React from "react";
-import { Row, Col } from "antd";
+import LayoutContentPage from "../../components/LayoutContent";
 import MasterLayoutVinFast from "../../components/MasterLayout";
 
 const PresidentPage = () => {
   return (
     <MasterLayoutVinFast>
-      <Row>
-        <Col span={24}>
-          <h1>PresidentPage</h1>
-        </Col>
-      </Row>
+      <LayoutContentPage />
     </MasterLayoutVinFast>
   );
 };

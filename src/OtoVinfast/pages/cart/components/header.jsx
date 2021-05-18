@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import { Layout, Menu } from "antd";
-import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
+import {
+  NavLink,
+  useLocation,
+  useRouteMatch,
+} from "react-router-dom";
 import logo from "../../home/img/logo.png";
+import { helpers } from "../../../helpers/common";
 
 const { Header } = Layout;
 
@@ -20,6 +25,14 @@ const DivLogoHeader = styled.div`
 `;
 
 const HeaderShopping = () => {
+  const info = helpers.decodeTokenLocalStorage();
+  const username = info !== null ? info["username"] : null;
+  //const history = useHistory();
+  // const LogoutUser = () => {
+  //   helpers.removeToken();
+  //   history.push("/gio-hang");
+  // };
+
   const { pathname } = useLocation();
   const { url } = useRouteMatch();
   return (
@@ -37,9 +50,22 @@ const HeaderShopping = () => {
           <Menu.Item key={`${url}#deposit`}>
             <NavLink to={`${url}#deposit`}>2.Thanh Toan</NavLink>
           </Menu.Item>
-          <Menu.Item key="/car-login">
-            <NavLink to="/car-login">Dang nhap</NavLink>
-          </Menu.Item>
+          {info === null && (
+            <Menu.Item key="/car-login">
+              <NavLink to="/car-login">Dang nhap</NavLink>
+            </Menu.Item>
+          )}
+          {info !== null && (
+            <Menu.Item>
+              <span>Hi: {username}</span>
+            </Menu.Item>
+          )}
+
+          {/* {info !== null && (
+            <Menu.Item onClick={() => LogoutUser}>
+              <NavLink to="/car-login">Logout</NavLink>
+            </Menu.Item>
+          )} */}
         </Menu>
       </StyleHeader>
     </Header>

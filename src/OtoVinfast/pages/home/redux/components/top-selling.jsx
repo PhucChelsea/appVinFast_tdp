@@ -16,9 +16,7 @@ const TopSellingProducts = () => {
     <>
       <Row style={{ margin: "12px 0px" }}>
         <Col span={24}>
-          <h2 style={{ textAlign: "center", margin: "6px 0px" }}>
-            TopSellingProducts
-          </h2>
+          <h2 style={{ textAlign: "center", margin: "6px 0px" }}>TopSelling</h2>
         </Col>
       </Row>
       <ListItems loading={loading} data={topSelling} />

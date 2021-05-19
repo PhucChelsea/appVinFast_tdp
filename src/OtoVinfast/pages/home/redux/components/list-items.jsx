@@ -20,12 +20,12 @@ const ListItems = (props) => {
                   hoverable
                   cover={<img alt={item.name} src={item.image} />}
                 >
-                  <Meta title={item.title} />
-                  <Button type="primary">Mua ngay</Button>
+                  <Meta title={item.name} />
+                  <Button type="primary ">Chi tiet </Button>
                 </Card>
               </Col>
             ))
-          : null} 
+          : null}
         {/* <Col span={6}>
           <Card
             hoverable

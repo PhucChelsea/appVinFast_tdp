@@ -2,9 +2,9 @@ import * as types from "./types";
 
 // dinh nghia action
 
-export const changePage = (pageNews) => ({
+export const changePage = (pNews) => ({
   type: types.CHANGE_PAGE,
-  pageNews,
+  pNews,
 });
 
 //dinh nghia action cua redux saga

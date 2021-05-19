@@ -12,9 +12,9 @@ export const stopGetData = (loading) => ({
   type: types.STOP_GET_DATA,
   loading,
 });
-export const getDataSuccess = (products) => ({
+export const getDataSuccess = (_product) => ({
   type: types.GET_DATA_SUCCESS,
-  products,
+  _product,
 });
 export const getDataFail = (error) => ({
   type: types.GET_DATA_FAIL,

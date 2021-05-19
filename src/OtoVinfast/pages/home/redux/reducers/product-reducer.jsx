@@ -21,7 +21,7 @@ export const productReducer = (state = initState, action) => {
       return {
         ...state,
         errorPd: null,
-        dataProduct: action.products,
+        dataProduct: action._product,
       };
     case types.GET_DATA_FAIL:
       return {

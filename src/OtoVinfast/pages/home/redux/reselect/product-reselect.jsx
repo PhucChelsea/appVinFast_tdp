@@ -8,9 +8,9 @@ export const loadingSelector = createSelector(
   loadingPdSelector,
   (item) => item
 );
-export const getFeaturedSelector = createSelector(productSelector, (item) => {
-  if (item.hasOwnProperty("featured")) {
-    return item.featured;
+export const getProductSelector = createSelector(productSelector, (item) => {
+  if (item.hasOwnProperty("data_s")) {
+    return item.data_s;
   }
   return [];
 });
@@ -21,8 +21,8 @@ export const getLatestSelector = createSelector(productSelector, (item) => {
   return [];
 });
 export const getTopSellingSelector = createSelector(productSelector, (item) => {
-  if (item.hasOwnProperty("top_selling")) {
-    return item.top_selling;
+  if (item.hasOwnProperty("data_s.text")) {
+    return item.data_s;
   }
   return [];
 });

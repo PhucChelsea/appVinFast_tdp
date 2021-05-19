@@ -1,13 +1,13 @@
-import { put, call, takeLatest } from "redux-saga/effects";
+import { put, call, takeEvery } from "redux-saga/effects";
 import * as types from "../actions/types";
 import * as actions from "../actions/index";
 
-import * as api from "../api";
+import * as api from "../../../../services/api";
 
-function* changePageSaga({ pageNews }) {
+function* changePageSaga() {
   try {
-    const data = yield call(api.changePageApi, pageNews);
-    if (data.results.length > 0) {
+    const data = yield call(api.getDataInfoBonus);
+    if (data.data_s.length > 0) {
       yield put(actions.changePageSuccess(data));
     } else {
       yield put(
@@ -25,5 +25,5 @@ function* changePageSaga({ pageNews }) {
 // theo doi action
 
 export default function* watchChangePage() {
-  yield takeLatest(types.CHANGE_PAGE, changePageSaga);
+  yield takeEvery(types.CHANGE_PAGE, changePageSaga);
 }

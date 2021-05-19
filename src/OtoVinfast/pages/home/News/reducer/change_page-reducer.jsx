@@ -10,7 +10,6 @@ export const changePageReducer = (state = initState, action) => {
     case types.CHANGE_PAGE_SUCCESS:
       return {
         ...state,
-
         dataNews: action.infoNews,
         error: null,
       };
@@ -18,7 +17,6 @@ export const changePageReducer = (state = initState, action) => {
       return {
         ...state,
         error: action.error,
-
         dataNews: null,
       };
     default:

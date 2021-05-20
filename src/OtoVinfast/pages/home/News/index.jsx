@@ -36,13 +36,17 @@ function News() {
   // }
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Hành trình chinh phục thế giới</h1>
+      <h1 style={{ textAlign: "center", margin: "20px" }}>
+        Hành trình chinh phục thế giới
+      </h1>
       <Row>
-        <Col span={12}>
+        <Col span={18} offset={3} style={{ position: "relative" }}>
           <BgNews />
-        </Col>
-        <Col span={12}>
-          <InfoNews />
+          <Row style={{ position: "absolute", top: 20, left: 600 }}>
+            <Col span={24}>
+              <InfoNews />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>

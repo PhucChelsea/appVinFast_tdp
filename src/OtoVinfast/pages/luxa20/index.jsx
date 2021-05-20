@@ -1,15 +1,12 @@
 import React from "react";
-import { Row, Col } from "antd";
 import MasterLayoutVinFast from "../../components/MasterLayout";
+import LayoutContentPage from "../../components/LayoutContent";
 
 const LuxA20Page = () => {
   return (
     <MasterLayoutVinFast>
-      <Row>
-        <Col span={24}>
-          <h1>LuxA20Page</h1>
-        </Col>
-      </Row>
+      <h1>Lux A 2.0 Page</h1>
+      <LayoutContentPage />
     </MasterLayoutVinFast>
   );
 };

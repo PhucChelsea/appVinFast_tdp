@@ -1,19 +1,27 @@
 import React from "react";
-
+import { Row, Col } from "antd";
 const BgNews = () => {
   return (
-    <>
-      <div
+    <Row>
+      <Col
+        span={24}
         style={{
           backgroundColor: "red",
-          margin: "30px 100px",
-          width: "100%",
           height: "50vh",
         }}
       >
-        <img className="image_bg" src="{item.image}" alt="" />
-      </div>
-    </>
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+          className="image_bg"
+          src="https://storage.googleapis.com/vinfast-data-01/Rectangle%206188.png"
+          alt=""
+        />
+      </Col>
+    </Row>
   );
 };
 export default React.memo(BgNews);

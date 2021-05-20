@@ -5,6 +5,7 @@ import MasterLayoutVinFast from "../../components/MasterLayout";
 const PresidentPage = () => {
   return (
     <MasterLayoutVinFast>
+      <h1>President Page</h1>
       <LayoutContentPage />
     </MasterLayoutVinFast>
   );

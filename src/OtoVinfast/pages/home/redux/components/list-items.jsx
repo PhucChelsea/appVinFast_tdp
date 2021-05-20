@@ -1,5 +1,6 @@
+import { Button, Card, Col, Row, Skeleton } from "antd";
 import React from "react";
-import { Row, Col, Card, Button, Skeleton } from "antd";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 
@@ -9,20 +10,33 @@ const ListItems = (props) => {
   }
   return (
     <>
-      <Row
-        style={{ margin: "10px 0px" }}
-        gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
-      >
+      <Row style={{ margin: "10px 0px" }} gutter={[8, 24]}>
         {props.data.length > 0
           ? props.data.map((item, index) => (
-              <Col key={index} span={6}>
+              <Col
+                key={index}
+                span={6}
+                style={{
+                  height: "600px",
+                  backgroundColor: "white",
+                  paddingTop: "15px",
+                }}
+              >
                 <Card
+                  style={{ height: 500 }}
+                  title={item.name}
                   hoverable
                   cover={<img alt={item.name} src={item.image} />}
                 >
-                  <Meta title={item.name} />
-                  <Button type="primary ">Chi tiet </Button>
+                  <Meta title={item.name} description={item.description} />
                 </Card>
+                <Link>
+                  <Button
+                    style={{ margin: "10px auto", justifyContent: "center" }}
+                  >
+                    Chi tiet
+                  </Button>
+                </Link>
               </Col>
             ))
           : null}

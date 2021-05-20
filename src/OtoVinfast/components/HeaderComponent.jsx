@@ -25,6 +25,7 @@ const DivLogoHeader = styled.div`
 const HeaderVinFast = () => {
   const history = useHistory();
   const { pathname } = useLocation();
+  // console.log("pathname_:", pathname);
   const info = helpers.decodeTokenLocalStorage();
   const username = info !== null ? info.phone : null;
   const LogoutUser = () => {

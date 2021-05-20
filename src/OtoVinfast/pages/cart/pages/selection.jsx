@@ -7,15 +7,28 @@ const SelectionCart = () => {
     <LayoutShopping>
       <Row>
         <Col
-          style={{ backgroundColor: "aqua", height: "100px" }}
+          style={{
+            backgroundColor: "aqua",
+            minHeight: "80vh",
+          }}
           xs={24}
           sm={24}
           md={24}
           lg={16}
           xl={16}
-        ></Col>
+        >
+          <img
+            src="https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dw7652ab62/images/President/hinh-anh-gia-VinFast-President-V8-mau-do-red.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </Col>
         <Col
-          style={{ backgroundColor: "green", height: "100px" }}
+          style={{ backgroundColor: "green", minHeight: "80vh" }}
           xs={24}
           sm={24}
           md={24}

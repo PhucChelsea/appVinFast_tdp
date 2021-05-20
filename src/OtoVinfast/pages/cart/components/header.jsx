@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Layout, Menu } from "antd";
-import {
-  NavLink,
-  useLocation,
-  useRouteMatch,
-} from "react-router-dom";
+import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
 import logo from "../../home/img/logo.png";
 import { helpers } from "../../../helpers/common";
 
@@ -32,9 +28,11 @@ const HeaderShopping = () => {
   //   helpers.removeToken();
   //   history.push("/gio-hang");
   // };
-
   const { pathname } = useLocation();
-  const { url } = useRouteMatch();
+
+  const { path, url } = useRouteMatch();
+  console.log("url_:", url);
+  console.log("path__:", path);
   return (
     <Header>
       <StyleHeader>
@@ -44,11 +42,11 @@ const HeaderShopping = () => {
           </DivLogoHeader>
         </NavLink>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={pathname}>
-          <Menu.Item key={`${url}#car`}>
-            <NavLink to={`${url}#car`}>1.Lua chon xe</NavLink>
+          <Menu.Item key='/gio-hang/car'>
+            <NavLink to='/gio-hang/car'>1.Lua chon xe</NavLink>
           </Menu.Item>
-          <Menu.Item key={`${url}#deposit`}>
-            <NavLink to={`${url}#deposit`}>2.Thanh Toan</NavLink>
+          <Menu.Item key='/gio-hang/deposit'>
+            <NavLink to='/gio-hang/deposit'>2.Thanh Toan</NavLink>
           </Menu.Item>
           {info === null && (
             <Menu.Item key="/car-login">

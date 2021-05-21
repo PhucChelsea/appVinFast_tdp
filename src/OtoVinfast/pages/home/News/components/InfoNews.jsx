@@ -1,46 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Card, Pagination } from "antd";
-import { useDispatch } from "react-redux";
-import { changePage } from "../actions/index";
+import { Data } from "../../../../components/data";
 const { Meta } = Card;
 const InfoNews = () => {
-  const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const [listData, setListData] = useState([]);
 
-  const clickChangePage = (p) => {
-    dispatch(changePage(p));
-  };
+  useEffect(() => {
+    try {
+      const getDataNews = async () => {
+        if (Data !== "") {
+          setListData(Data);
+        }
+      };
+      getDataNews();
+    } catch (error) {
+      console.log("da co loi:", error);
+    }
+  }, [page]);
   return (
     <>
-      <Row>
-        <Col span={24}>
-          <Card
-            bordered={false}
-            style={{
-              width: 300,
-              minHeight: 200,
-              // margin: "30px",
-              // float: "right",
-            }}
-          >
-            <Meta
-              title="công nghệ thông minh cho tương lai"
-              description="Đặt khách hàng làm trọng tâm, các mẫu xe thông minh của VinFast được ứng dụng những công nghệ ưu việt hàng đầu thế giới như trí tuệ nhân tạo, máy móc và học sâu cùng các tính năng tự hành cấp độ cao"
-            />
-            <Pagination
+      <Row style={{ width: "100%", height: "100%" }}>
+        {Data.map((id) => (
+          <Col key={id} span={24}>
+            <Card
+              bordered={false}
               style={{
-                marginLeft: "10px",
-                margin: "15px",
-                // transform: "translate(0,0)",
-                // backgroundColor: "red",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "aqua",
+                // width: 300,
+                // minHeight: 200,
+                // margin: "30px",
+                // float: "right",
               }}
-              current="1"
-              size="small"
-              total={50}
-              onChange={(val) => clickChangePage(val)}
-            />
-          </Card>
-        </Col>
+            >
+              <Meta title={id.title} description={id.text} />
+            </Card>
+          </Col>
+        ))}
       </Row>
+      {/* <Row style={{ textAlign: "center", marginTop: "10px" }}>
+        <Col span={24}>
+          <Pagination
+            current={page}
+            pageSize={5}
+            size="small"
+            total={50}
+          />
+        </Col>
+      </Row> */}
     </>
   );
 };

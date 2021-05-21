@@ -14,11 +14,13 @@ const { Meta } = Card;
 function News() {
   const [info, setInfo] = useState("");
   const [listData, setListData] = useState([]);
+  console.log(listData);
 
   useEffect(() => {
     try {
       const getDataNews = async () => {
         if (Data !== "") {
+          setInfo("");
           setListData(Data);
         }
       };

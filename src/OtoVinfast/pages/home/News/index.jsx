@@ -45,10 +45,11 @@ function News() {
         {Data !== "" &&
           Data.map((id) => (
             <Col key={id} span={24}>
-              <Row
-                style={{ width: "100%", height: "100%", position: "relative" }}
-              >
-                <Col key={id} span={24}>
+              {/* <div data-aos="zoom-in-up"> */}
+              <Row style={{ width: "100%", height: "100%", display: "flex" }}>
+                {/* <div data-aos="fade-right"> */}
+                <Col key={id} span={18}>
+                <div data-aos="zoom-in-up" style={{ height: "100%" }}>
                   <Image
                     // width={200}
                     style={{
@@ -58,34 +59,39 @@ function News() {
                     }}
                     src={id.image}
                   />
+                  </div>
                 </Col>
+                {/* </div> */}
                 <Col
                   key={id}
-                  span={10}
-                  offset={7}
-                  style={{ position: "absolute" }}
+                  span={6}
+                  // offset={7}
+                  // style={{ position: "absolute" }}
                 >
-                  <Card
-                    bordered={false}
-                    style={{
-                      width: "300px",
-                      height: "400px",
-                      backgroundColor: "aqua",
-                      position: "absolute",
-                      top: "70px",
-                      left: "500px",
-                      borderRadius: "20px 20px ",
-                      opacity: ".6",
-                    }}
-                  >
-                    <Meta
-                      style={{ zIndex: "10" }}
-                      title={id.title}
-                      description={id.text}
-                    />
-                  </Card>
+                  <div data-aos="zoom-in-up" style={{ height: "98.5%" }}>
+                    <Card
+                      bordered={false}
+                      style={{
+                        // width: "300px",
+                        height: "100%",
+                        // backgroundColor: "aqua",
+                        // position: "absolute",
+                        // top: "70px",
+                        // left: "500px",
+                        // borderRadius: "20px 20px ",
+                        // opacity: ".6",
+                      }}
+                    >
+                      <Meta
+                        // style={{ zIndex: "10" }}
+                        title={id.title}
+                        description={id.text}
+                      />
+                    </Card>
+                  </div>
                 </Col>
               </Row>
+              {/* </div> */}
             </Col>
           ))}
       </Row>

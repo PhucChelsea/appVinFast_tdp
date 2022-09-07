@@ -14,7 +14,7 @@ const DepositCart = () => {
           <Col span={8}>
             <Row style={{ backgroundColor: "aqua" }}>
               <Col span={24}>
-                <h2>THÔNG SỐ CẦU TRỤC</h2>
+                {/* <h2>THÔNG SỐ CẦU TRỤC</h2> */}
               </Col>
             </Row>
             <Row style={{ backgroundColor: "blue" }}>

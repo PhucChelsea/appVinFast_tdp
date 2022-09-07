@@ -57,7 +57,13 @@ const HeaderVinFast = () => {
           <Menu.Item key="/car-fadil">
             <Link to="/car-fadil">Fadil</Link>
           </Menu.Item>
-          {info === null && (
+          <Menu.Item key="/dang-ki-lai-thu">
+            <Link to="/dang-ki-lai-thu">Đăng kí lái thử</Link>
+          </Menu.Item>
+          <Menu.Item key="/thu-cu-doi-moi">
+            <Link to="/thu-cu-doi-moi">Thu cũ đổi mới</Link>
+          </Menu.Item>
+          {/* {info === null && (
             <Menu.Item key="/car-login">
               <Link to="/car-login">
                 <UserOutlined />
@@ -79,7 +85,7 @@ const HeaderVinFast = () => {
             <Menu.Item onClick={() => LogoutUser()}>
               <LogoutOutlined />
             </Menu.Item>
-          )}
+          )} */}
         </Menu>
       </StyleHeader>
     </Header>

@@ -16,6 +16,8 @@ const PresidentPage = lazy(() => import("../pages/president/index"));
 const LuxSA20Page = lazy(() => import("../pages/luxsa20/index"));
 const LuxA20Page = lazy(() => import("../pages/luxa20/index"));
 const FadilPage = lazy(() => import("../pages/fadil/index"));
+const TestDrivePage = lazy(() => import("../pages/testDrive/index"));
+const NewOldPage = lazy(() => import("../pages/newOld/index"));
 const LoginPage = lazy(() => import("../pages/login/index"));
 const ShopingcartPage = lazy(() => import("../pages/cart/index"));
 
@@ -77,12 +79,18 @@ const RouterVinFast = () => {
             <Route path="/car-fadil">
               <FadilPage />
             </Route>
-            <IsLoginRouter path="/car-login">
+            <Route path="/dang-ki-lai-thu">
+              <TestDrivePage />
+            </Route>
+            <Route path="/thu-cu-doi-moi">
+              <NewOldPage />
+            </Route>
+            {/* <IsLoginRouter path="/car-login">
               <LoginPage />
             </IsLoginRouter>
             <PrivateRouter path="/gio-hang">
               <ShopingcartPage />
-            </PrivateRouter>
+            </PrivateRouter> */}
           </Switch>
         </Suspense>
       </Router>

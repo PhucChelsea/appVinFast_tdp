@@ -9,10 +9,10 @@ export const loadingSelector = createSelector(
   (item) => item
 );
 export const getProductSelector = createSelector(productSelector, (item) => {
-  if (item.hasOwnProperty("data_s")) {
-    return item.data_s;
-  }
-  return [];
+  // if (item.hasOwnProperty("data_s")) {
+  //   return item.data_s;
+  // }
+  return item;
 });
 export const getLatestSelector = createSelector(productSelector, (item) => {
   if (item.hasOwnProperty("latest")) {

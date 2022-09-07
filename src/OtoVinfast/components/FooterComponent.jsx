@@ -6,7 +6,7 @@ const { Footer } = Layout;
 const FooterVinFast = () => {
   return (
     <Footer style={{ textAlign: "center" }}>
-      VinFast ©2021 Created by TDP chelsea
+      VinFast ©2022 Created by TDP
     </Footer>
   );
 };

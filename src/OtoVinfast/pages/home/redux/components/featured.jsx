@@ -23,9 +23,9 @@ const Products = () => {
         </Col>
       </Row>
       <ListItems loading={loading} data={products}  />
-      <Link>
+      {/* <Link>
         <Button>Chi tiet</Button>
-      </Link>
+      </Link> */}
     </>
   );
 };

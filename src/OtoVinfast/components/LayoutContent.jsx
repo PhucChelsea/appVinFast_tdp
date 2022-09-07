@@ -1,7 +1,115 @@
 import React from "react";
-import { Row, Col, Button } from "antd";
+import { Row, Col, Button, Tabs, Card } from "antd";
 
-const LayoutContentPage = () => {
+const LayoutContentPage = ({
+  data,
+  handleChangeTab,
+  urlBg,
+  urlContent,
+  urlProduct,
+}) => {
+  console.log("ttt data", data);
+  const renderCard = () => {
+    return (
+      <Card
+        bordered={false}
+        padding={"0px 0px"}
+        style={{
+          width: "100%",
+        }}
+      >
+        <Row
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Dài * Rộng * Cao
+            </Row>
+            <Row>{data?.size} (mm)</Row>
+          </Col>
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>Động cơ</Row>
+            <Row>{data?.engine}L</Row>
+          </Col>
+        </Row>
+        <Row
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Chiều dài cơ sở
+            </Row>
+            <Row>{data?.wheelBase} (mm)</Row>
+          </Col>
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Công suất tối đa
+            </Row>
+            <Row>{data?.maxPower} HP</Row>
+          </Col>
+        </Row>
+        <Row
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Khoảng sáng gầm
+            </Row>
+            <Row>{data?.groundClearance} (mm)</Row>
+          </Col>
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Mô men xoắn cực đại
+            </Row>
+            <Row>{data?.maximumTorque} Nm</Row>
+          </Col>
+        </Row>
+        <Row
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Dung tích nhiên liệu
+            </Row>
+            <Row>{data?.fuelCapacity}L</Row>
+          </Col>
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>Hộp số</Row>
+            <Row>{data?.gear}</Row>
+          </Col>
+        </Row>
+        <Row
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>
+              Mức tiêu thụ nhiêu liệu
+            </Row>
+            <Row>{data?.fuelConsumption}</Row>
+          </Col>
+          <Col style={{ width: 100, display: "inline-block" }}>
+            <Row style={{ fontSize: "14px", fontWeight: "bold" }}>Dẫn động</Row>
+            <Row>{data?.drive}</Row>
+          </Col>
+        </Row>
+      </Card>
+    );
+  };
   return (
     <div style={{ backgroundColor: "blanchedalmond" }}>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
@@ -10,39 +118,68 @@ const LayoutContentPage = () => {
           style={{
             width: "100%",
             minHeight: "100vh",
-            background:
-              "url(https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dwac5ca505/images/vfast/Hinh-anh-xe-SUV-VinFast-President-gia-xe-thong-so-bang-mau-dong-co-v8.jpg)",
+            background: `url(${urlBg})`,
+            // background: `url(${data?.imageProduct})`,
+            // background:"url(https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dwac5ca505/images/vfast/Hinh-anh-xe-SUV-VinFast-President-gia-xe-thong-so-bang-mau-dong-co-v8.jpg)",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "100% 100%",
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingRight: "150px",
-            paddingTop: "100px",
+            backgroundSize: "auto",
+            // display: "flex",
+            // justifyContent: "flex-end",
+            position: "relative",
           }}
         >
           <div
             style={{
               // border: "1px solid black",
               textTransform: "uppercase",
-              color: "blue",
+              color: "aqua",
               display: "flex",
-              flexDirection: "column",
-              fontSize: "40px",
-              fontWeight: 700,
+              // flexDirection: "column",
+              justifyContent: "center",
+              fontSize: "20px",
+              fontWeight: 900,
+              width: "100%",
+              // marginBottom: '10px',
+              position: "absolute",
+              bottom: "50px",
             }}
           >
-            <span>Dòng SUV</span>
-            <span style={{ fontSize: "20px" }}>DẤU ẤN NGƯỜI THỦ LĨNH</span>
-            <Button
+            <div
               style={{
-                marginTop: "20px",
-                fontWeight: 700,
-                width: "200px",
-                height: "50px",
+                display: "flex",
+                flexDirection: "column",
+                borderRight: "2px solid",
+                padding: " 0 10px",
+                textAlign: "center",
               }}
             >
-              MUA NGAY
-            </Button>
+              <div>Động cơ</div>
+              <div>{data?.engine}l</div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRight: "2px solid",
+                padding: " 0 10px",
+                textAlign: "center",
+              }}
+            >
+              <div>Công suất</div>
+              <div>{data?.maxPower}HP</div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRight: "2px solid",
+                padding: " 0 10px",
+                textAlign: "center",
+              }}
+            >
+              <div>Chiều dài cơ sở</div>
+              <div>{data?.wheelBase}mm</div>
+            </div>
           </div>
         </Col>
       </Row>
@@ -52,8 +189,9 @@ const LayoutContentPage = () => {
           style={{
             width: "100%",
             minHeight: "100vh",
-            background:
-              "url(https://vinfastauto.com/sites/default/files/styles/images_1440_x_623/public/2021-01/Rectangle%20594%20%281%29.png?itok=EdYaUE91)",
+            background: `url(${urlContent})`,
+            // background:
+            //   "url(https://vinfastauto.com/sites/default/files/styles/images_1440_x_623/public/2021-01/Rectangle%20594%20%281%29.png?itok=EdYaUE91)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "100% 100%",
           }}
@@ -71,7 +209,7 @@ const LayoutContentPage = () => {
             }}
           >
             <p style={{ position: "absolute", top: 100, left: 300 }}>
-              VinFast President
+              VinFast {data?.name}
             </p>
           </div>
           <div
@@ -96,9 +234,7 @@ const LayoutContentPage = () => {
               Cùng bạn <p> bứt phá mọi giới hạn</p>
             </span>
             <p style={{ paddingLeft: "80px", paddingBottom: "50px" }}>
-              Với tầm nhìn toàn cầu, VinFast sáng tạo không ngừng để mang lại
-              những sản phẩm đẳng cấp,
-              <p>trải nghiệm thông minh và giá trị vượt trộ cho khách hàng</p>
+              {data?.description}
             </p>
           </div>
         </Col>
@@ -111,7 +247,66 @@ const LayoutContentPage = () => {
           lg={10}
           style={{ backgroundColor: "white" }}
         >
-          <h1>thông số</h1>
+          <Row>
+            <Col
+              style={{
+                textTransform: "uppercase",
+                display: "flex",
+                flexDirection: "column",
+                padding: "40px 60px",
+              }}
+            >
+              {/* <div style={{ textTransform: "uppercase", display:'flex', flexDirection:'column', padding:'40px 60px'}}> */}
+              <div
+                style={{
+                  color: "#808080",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  width: "100%",
+                }}
+              >
+                Vinfast {data?.name}
+              </div>
+              <div
+                style={{
+                  color: "black",
+                  fontSize: "30px",
+                  fontWeight: "normal",
+                  letterSpacing: "8px",
+                }}
+              >
+                Thông số xe
+              </div>
+              <p
+                style={{
+                  color: "#808080",
+                  width: "100%",
+                  fontSize: "10px",
+                  fontWeight: "normal",
+                  textTransform: "none",
+                }}
+              >
+                Các thông tin sản phẩm có thể thay đổi mà không cần báo trước
+              </p>
+              {/* </div> */}
+            </Col>
+            <Col style={{ padding: "0 60px" }}>
+              <Tabs
+                defaultActiveKey="1"
+                onChange={(key) => handleChangeTab(key)}
+              >
+                <Tabs.TabPane tab="TIÊU CHUẨN" key="1">
+                  {renderCard()}
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="NÂNG CAO" key="2">
+                  {renderCard()}
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="CAO CẤP" key="3">
+                  {renderCard()}
+                </Tabs.TabPane>
+              </Tabs>
+            </Col>
+          </Row>
         </Col>
         <Col
           xs={24}
@@ -119,30 +314,34 @@ const LayoutContentPage = () => {
           md={14}
           lg={14}
           style={{
+            margin: 'auto 0',
             width: "100%",
-            minHeight: "100vh",
-            background:
-              "url(https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dw47cd0e93/images/vfast/hinh-anh-thong-so-VinFast-President-V8.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "100%",
-            backgroundColor: "white",
+            // minHeight: "100vh",
+            // background: `url(${urlProduct})`,
+            // // background:
+            // //   "url(https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dw47cd0e93/images/vfast/hinh-anh-thong-so-VinFast-President-V8.png)",
+            // backgroundRepeat: "no-repeat",
+            // backgroundSize: "auto",
+            // backgroundColor: "white",
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-end",
           }}
         >
-          <Button
+          <img src={urlProduct} alt="" />
+          {/* <Button
             style={{
               marginBottom: "50px",
               fontWeight: 700,
               fontSize: "20px",
               width: "300px",
               height: "60px",
-              backgroundColor: "blueviolet",
+              // backgroundColor: "blueviolet",
             }}
+            // disabled
           >
             MUA NGAY
-          </Button>
+          </Button> */}
         </Col>
       </Row>
     </div>
